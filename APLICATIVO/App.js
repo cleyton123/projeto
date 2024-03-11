@@ -1,10 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View} from 'react-native';
+
+import ImageView from './componentes/imageView'; 
+
+const PlaceholderImage = require('./assets/icon.png');
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>José Cleyton</Text>
+      <View style={styles.imageContainer}>
+        <ImageView placeholderImageSource={PlaceholderImage} /> 
+      </View>
       <StatusBar style="auto" />
     </View>
   );
@@ -13,8 +19,11 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#25292e',
     alignItems: 'center',
-    justifyContent: 'center',
+  },
+  imageContainer: {
+    flex: 1,
+    paddingTop: 58,
   },
 });
