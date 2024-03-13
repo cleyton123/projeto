@@ -11,7 +11,7 @@ export default function Button({ label, onPress }) {
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: '#32cd32',
+    backgroundColor: '#00ff7f',
     padding: 5, 
     borderRadius: 5,
     alignItems: 'center',
