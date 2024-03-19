@@ -1,27 +1,20 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
-const CadastroScreen = ({ navigation }) => {
-  const [nome, setNome] = useState('');
+const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
-  const handleCadastro = () => {
-    console.log('Cadastro com nome, email e senha:', { nome, email, senha });
-    navigation.navigate('Login');
+  const handleLogin = () => {
+    console.log('Login com email:', { email, senha });
+    navigation.navigate('Cadastro');
   };
 
   return (
     <View style={styles.container}>
       <View style={[styles.halfContainer, { backgroundColor: 'white' }]} />
       <View style={[styles.halfContainer, { backgroundColor: '##f5f5f5' }]}>
-        <Text style={styles.title}>Cadastro</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Nome"
-          value={nome}
-          onChangeText={setNome}
-        />
+        <Text style={styles.title}>Login</Text>
         <TextInput
           style={styles.input}
           placeholder="E-mail"
@@ -36,8 +29,13 @@ const CadastroScreen = ({ navigation }) => {
           onChangeText={setSenha}
           secureTextEntry
         />
-        <TouchableOpacity style={styles.cadastro} onPress={handleCadastro}>
-          <Text style={{color:'white'}}>Cadastrar</Text>
+        <TouchableOpacity style={styles.button}>
+          <Text style={{ color: 'white' }}>Login</Text>
+        </TouchableOpacity>
+        <text style={styles.cadastro}>Ainda não tem conta?</text>
+        <TouchableOpacity style={styles.cadastrocampo} onPress={handleLogin}>
+        <text style={{color:'blue'}}>Cadastre-se</text> 
+
         </TouchableOpacity>
       </View>
     </View>
@@ -69,12 +67,29 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 20,
   },
-  cadastro: {
+  button: {
     backgroundColor: 'blue',
-    paddingHorizontal: 60,
     paddingVertical: 10,
+    paddingHorizontal: 60,
     borderRadius: 20,
-  }
+    marginTop:0
+  },
+  cadastro:{
+    color:'black',
+    marginTop:20
+
+  },
+  cadastrocampo:{
+    backgroundColor:'white',
+    paddingHorizontal:20,
+    paddingVertical:1,
+    marginLeft:300,
+    marginTop:-20,
+    borderColor:'yellow',
+    borderWidth:3,
+
+
+  },
 });
 
-export default CadastroScreen;
+export default LoginScreen;
