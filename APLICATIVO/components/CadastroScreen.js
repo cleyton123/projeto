@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   },
   cadastro: {
     backgroundColor: 'blue',
-    paddingHorizontal: 60,
+    paddingHorizontal: 80,
     paddingVertical: 10,
     borderRadius: 20,
   }

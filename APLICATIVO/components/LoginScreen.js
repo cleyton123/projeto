@@ -32,10 +32,9 @@ const LoginScreen = ({ navigation }) => {
         <TouchableOpacity style={styles.button}>
           <Text style={{ color: 'white' }}>Login</Text>
         </TouchableOpacity>
-        <text style={styles.cadastro}>Ainda não tem conta?</text>
-        <TouchableOpacity style={styles.cadastrocampo} onPress={handleLogin}>
-        <text style={{color:'blue'}}>Cadastre-se</text> 
-
+        <text style={styles.texto}>Ainda não tem conta?</text>
+        <TouchableOpacity style={styles.cadastro } onPress={handleLogin}>
+          <text style={{color:'blue'}}>Cadastre-se</text>
         </TouchableOpacity>
       </View>
     </View>
@@ -60,36 +59,34 @@ const styles = StyleSheet.create({
   input: {
     height: 30,
     width: '40%',
-    borderColor: 'gray',
-    borderWidth: 1,
     marginBottom: 16,
     paddingHorizontal: 8,
     backgroundColor: 'white',
     borderRadius: 20,
+    borderColor: 'gray',
+    borderWidth: 1,
   },
   button: {
     backgroundColor: 'blue',
     paddingVertical: 10,
-    paddingHorizontal: 60,
+    paddingHorizontal: 80,
     borderRadius: 20,
-    marginTop:0
+    marginTop:5
   },
-  cadastro:{
+  texto:{
     color:'black',
     marginTop:20
-
   },
-  cadastrocampo:{
+  cadastro:{
     backgroundColor:'white',
-    paddingHorizontal:20,
+    paddingHorizontal:10,
     paddingVertical:1,
-    marginLeft:300,
-    marginTop:-20,
-    borderColor:'yellow',
     borderWidth:3,
+    borderColor:'yellow',
+    marginLeft:300,
+    marginTop:-20
 
-
-  },
+  }
 });
 
 export default LoginScreen;
