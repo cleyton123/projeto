@@ -1,25 +1,19 @@
+// App.js
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
-import Button from './components/Button'; // Importa o componente Button
+import { StyleSheet, Text, TextInput, View, Image } from 'react-native';
+import Button from './components/Button'; // Certifique-se de importar o componente Button corretamente
+import CadastroScreen from './components/CadastroScreen'; // Importe o componente CadastroScreen
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Login</Text>
-      <View style={styles.inputContainer}>
-        <TextInput
-          style={styles.input}
-          placeholder="Username"
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Password"
-          secureTextEntry={true}
-        />
-        <Button label="Login" onPress={() => console.log('Botão pressionado!')} /> {/* Adiciona o componente Button */}
+      <View style={styles.cor1}>
+        <View style={styles.viewLogo}>
+          <Image source={require('./assets/travel.png')} />
+        </View>
       </View>
-
+      <CadastroScreen /> {/* Renderize o componente CadastroScreen aqui */}
       <StatusBar style="auto" />
     </View>
   );
@@ -28,22 +22,24 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#7fffd4',
+    backgroundColor: '#ffffff',
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop: -80,
   },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 24,
+  cor1: {
+    flex: 1,
+    backgroundColor: '#fff5ee',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  inputContainer: {
-    width: '20%',
-  },
-  input: {
-    backgroundColor: '#fff',
-    padding: 10,
-    marginBottom: 10,
-    borderRadius: 15,
+  viewLogo: {
+    width: 500,
+    height: 500,
+    flexDirection: 'row',
+    alignItems: 'center',
+    alignSelf: 'flex-start',
+    marginLeft: 250,
+    marginBottom: 50,
   },
 });
