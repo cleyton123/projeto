@@ -8,8 +8,7 @@ const CadastroScreen = ({ navigation }) => {
 
   const handleCadastro = () => {
     console.log('Cadastro com nome, email e senha:', { nome, email, senha });
-    // Aqui você pode adicionar a lógica de cadastro
-    // e navegar para a próxima tela se o cadastro for bem-sucedido
+ 
     navigation.navigate('Login');
   };
 
