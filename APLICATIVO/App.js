@@ -4,17 +4,21 @@ import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from './components/LoginScreen';
 import CadastroScreen from './components/CadastroScreen';
 import AboutScreen from './components/about';
+import AuthProvider from './components/contexts/auth';
 
 const Stack = createStackNavigator();
 
 const App = () => {
+  
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Cadastro" component={CadastroScreen} />
-        <Stack.Screen name="About" component={AboutScreen} />
-      </Stack.Navigator>
+      <AuthProvider>
+       <Stack.Navigator initialRouteName="Login">
+         <Stack.Screen name="Login" component={LoginScreen} />
+         <Stack.Screen name="Register" component={CadastroScreen} />
+         <Stack.Screen name="About" component={AboutScreen} />
+       </Stack.Navigator>
+      </AuthProvider>
     </NavigationContainer>
   );
 };

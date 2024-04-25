@@ -1,20 +1,48 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
+import { useTranslation } from 'react-i18next';
+
+
+
+
 const CadastroScreen = ({ navigation }) => {
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
-  const handleCadastro = () => {
-    console.log('Cadastro com nome, email e senha:', { nome, email, senha });
 
-    navigation.navigate('Login');
+  const handleCadastro = () => {
+   if(nome !=='' && email !=='' && senha !=='' ){
+
+    navigation.navigate('Login')
+    
+   }
+
   };
+  const {t,i18n} = useTranslation();
+  const Language = value => {
+    i18n.changeLanguage(value)
+      .then(() => {
+        console.log("linguagem alterada")
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Cadastro</Text>
+      <View>
+        <TouchableOpacity style={styles.ingles} onPress={ () => Language('en') }>
+          <Text>inglês</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.portugues} onPress = { () => Language('pt') } >
+          <Text>Português Brasil</Text>
+        </TouchableOpacity>
+      </View>
+      <Text style={styles.title}>{t('Cadastrar')}</Text>
       <TextInput
         style={styles.input}
         placeholder="Nome"
@@ -35,8 +63,9 @@ const CadastroScreen = ({ navigation }) => {
         onChangeText={setSenha}
         secureTextEntry
       />
-      <TouchableOpacity style={styles.button} onPress={handleCadastro}>
-        <Text style={{ color: 'white' }}>Cadastrar</Text>
+      <TouchableOpacity style={styles.button} onPress={handleCadastro} >
+        <Text style={{ color: 'white' }}>{t('Cadastrar')}</Text>
+       
       </TouchableOpacity>
     </View>
   );
@@ -72,6 +101,23 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     marginTop: 5,
   },
+
+  ingles:{
+    borderColor:'black', 
+    borderWidth: 1 ,
+    marginTop:-80,
+    marginLeft:220,
+    marginRight:120,
+    
+   
+  },
+  portugues:{
+    borderColor:'black',
+     borderWidth: 1, 
+     marginRight:175,
+     marginLeft:100,
+     marginTop:-22,
+  }
 });
 
 export default CadastroScreen;
